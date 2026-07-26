@@ -94,3 +94,20 @@ If PERF access is disabled by the system configuration, check
 `/proc/sys/kernel/perf_event_paranoid`. The benchmark counts only user-space
 cycles and does not require direct user-mode access to the architectural PMU
 registers.
+
+## Security status
+
+This software is a research artifact. It has been extensively tested, but it
+has not been formally verified or independently audited. Users are responsible
+for independent validation before production use.
+
+## License
+
+Required Notice: Copyright 2026 Cesare Huang
+
+Except for the `aarch64-bench` submodule, this repository is source-available
+under the [PolyForm Noncommercial License 1.0.0](LICENSE). Commercial use
+requires a separate written license; contact
+[Cesarehuang@icloud.com](mailto:Cesarehuang@icloud.com).
+
+The `aarch64-bench` submodule remains under its upstream licenses.
