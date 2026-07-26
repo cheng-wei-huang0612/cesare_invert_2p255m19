@@ -1,0 +1,3 @@
+[submodule "aarch64-bench"]
+	path = aarch64-bench
+	url = https://github.com/mkannwischer/aarch64-bench.git
