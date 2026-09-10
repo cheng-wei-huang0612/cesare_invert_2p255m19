@@ -1,7 +1,7 @@
 CC ?= cc
 
 BUILD_DIR := build
-ASM := invert25519.s
+ASM := invert25519_65a210bb6a4c.s
 BENCH_BIN := $(BUILD_DIR)/bench
 TEST_BIN := $(BUILD_DIR)/test
 HAL_DIR := aarch64-bench/hal
