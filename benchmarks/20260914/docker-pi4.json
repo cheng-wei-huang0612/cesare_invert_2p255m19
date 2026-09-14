@@ -1,0 +1,21 @@
+{
+  "environment": "cesare_ce_dev:arm64",
+  "compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "command": [
+    "make",
+    "test",
+    "TARGET=pi4",
+    "BUILD_DIR=build/docker-pi4"
+  ],
+  "exit_status": 0,
+  "random_inputs": 1000000,
+  "total_inputs": 1008012,
+  "assembly_calls": 2016028,
+  "seed": "0x25519",
+  "guard_pages": true,
+  "in_place": true,
+  "assembly_sha256": "f5502485c80d5142cae369c0279481cd45a87c45ca6f7db061d20c14a42bc850",
+  "test_source_sha256": "5b9b0ee7f5c0896308580b96abfe179b518f88ae7f77f9ade1c48f1076f5ea49",
+  "binary_sha256": "cf3df4ab19d06b308e69153c80ae53fcaaea6f5e73aa55ec75aabcec14971229",
+  "stdout": "Testing invert25519 with GMP reference\nRandom inputs: 1000000, seed: 0x0000000000025519\nPASS: 1008012 inputs, 2016028 assembly calls, including guard-page checks\n"
+}

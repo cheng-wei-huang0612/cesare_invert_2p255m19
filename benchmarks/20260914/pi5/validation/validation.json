@@ -1,0 +1,32 @@
+[
+  {
+    "variant": "65a210bb6a4c",
+    "returncode": 0,
+    "random_cases": 1000000,
+    "inputs": 1008012,
+    "assembly_calls": 2016028,
+    "binary_sha256": "1e0445887d8f1b9379fb9670c9869979c9244338c2e5a10e5eee1b49a3acd9f5",
+    "seed": "0x25519",
+    "text_sha256": "405093f0007260e7a50796a76d6c71fe6e029e3363ac4d20e3fe4095d645b157"
+  },
+  {
+    "variant": "043d7a693cb3",
+    "returncode": 0,
+    "random_cases": 1000000,
+    "inputs": 1008012,
+    "assembly_calls": 2016028,
+    "binary_sha256": "9a8b448009bf21af571cd128c3540c35d23d25644f13ef440ff27282e7bbc6a6",
+    "seed": "0x25519",
+    "text_sha256": "8ae714fd74cd99234c39c35e0150148ef616342b50a04ccb116b08933d5ad820"
+  },
+  {
+    "variant": "f8a6dea8cb0e",
+    "returncode": 0,
+    "random_cases": 1000000,
+    "inputs": 1008012,
+    "assembly_calls": 2016028,
+    "binary_sha256": "04141613c5d95c88e88e51bd3e262f7b73ece0b545223c7b5531c4d727c9c257",
+    "seed": "0x25519",
+    "text_sha256": "93627b84471d31df6e5ddfcb4428cdd90d9130a37cbf68bc207e1f0a7bcd5e3e"
+  }
+]

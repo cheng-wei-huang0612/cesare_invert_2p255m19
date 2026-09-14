@@ -1,0 +1,44 @@
+{
+  "runs": [
+    {
+      "target": "pi4",
+      "command": [
+        "make",
+        "test",
+        "TARGET=pi4",
+        "BUILD_DIR=build/switch-check",
+        "TESTS=0"
+      ],
+      "stdout": "Testing invert25519 with GMP reference\nRandom inputs: 0, seed: 0x0000000000025519\nPASS: 8012 inputs, 16028 assembly calls, including guard-page checks\n",
+      "stderr": "",
+      "text_sha256": "d98aae79af7001e55d7bdf0ffdaad81b0d7923b2ade3bcdcb4018081188d82dd"
+    },
+    {
+      "target": "pi5",
+      "command": [
+        "make",
+        "test",
+        "TARGET=pi5",
+        "BUILD_DIR=build/switch-check",
+        "TESTS=0"
+      ],
+      "stdout": "cc -O3 -std=c11 -Wall -Wextra -Wpedantic -Werror $(pkg-config --cflags gmp) \\\n\ttest.c invert25519_043d7a693cb3.s $(pkg-config --libs gmp) -o build/switch-check/test\nTesting invert25519 with GMP reference\nRandom inputs: 0, seed: 0x0000000000025519\nPASS: 8012 inputs, 16028 assembly calls, including guard-page checks\n",
+      "stderr": "",
+      "text_sha256": "780d58f24299019317df79723644e6eff31b6682790ecfa5c19e9b63bce19704"
+    },
+    {
+      "target": "pi4",
+      "command": [
+        "make",
+        "test",
+        "TARGET=pi4",
+        "BUILD_DIR=build/switch-check",
+        "TESTS=0"
+      ],
+      "stdout": "cc -O3 -std=c11 -Wall -Wextra -Wpedantic -Werror $(pkg-config --cflags gmp) \\\n\ttest.c invert25519_f8a6dea8cb0e.s $(pkg-config --libs gmp) -o build/switch-check/test\nTesting invert25519 with GMP reference\nRandom inputs: 0, seed: 0x0000000000025519\nPASS: 8012 inputs, 16028 assembly calls, including guard-page checks\n",
+      "stderr": "",
+      "text_sha256": "d98aae79af7001e55d7bdf0ffdaad81b0d7923b2ade3bcdcb4018081188d82dd"
+    }
+  ],
+  "passed": true
+}

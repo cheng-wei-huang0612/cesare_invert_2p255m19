@@ -1,0 +1,1197 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "arguments": {
+    "cpu": 3,
+    "control_cpu": 0,
+    "rounds": 3,
+    "samples": 501,
+    "batch": 1000,
+    "tests": 1000000,
+    "seed": 152857,
+    "timeout": 600,
+    "output": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference"
+  },
+  "variants": [
+    "65a210bb6a4c",
+    "043d7a693cb3",
+    "f8a6dea8cb0e"
+  ],
+  "method": {
+    "counter": "PERF_COUNT_HW_CPU_CYCLES",
+    "exclude_kernel": true,
+    "exclude_hypervisor": true,
+    "pinned_counter": true,
+    "multiplexing": "rejected",
+    "units": "user CPU cycles per inversion",
+    "governor_or_frequency_changes": false,
+    "paired_empty_subtraction": true,
+    "rotation": "function (sample + offset) modulo 4",
+    "warmup_batches_per_function": 20,
+    "main_runs": 6,
+    "link_orders": [
+      "forward",
+      "reverse"
+    ],
+    "controls": [
+      "one",
+      "max255"
+    ],
+    "control_link_order": "forward",
+    "main_input_words_le": [
+      "0x0123456789abcdef",
+      "0xfedcba9876543210",
+      "0x0f1e2d3c4b5a6978",
+      "0x7766554433221100"
+    ]
+  },
+  "source_sha256": {
+    "invert25519_65a210bb6a4c.s": "186cc14cba822468c920d4274a780d864db4c8b439c0e11e127dffbd1380c8cf",
+    "invert25519_043d7a693cb3.s": "1333983811e657c87e9405de02a968c62f8f947b53dc63b3c7c186c805445670",
+    "invert25519_f8a6dea8cb0e.s": "f5502485c80d5142cae369c0279481cd45a87c45ca6f7db061d20c14a42bc850",
+    "test.c": "5b9b0ee7f5c0896308580b96abfe179b518f88ae7f77f9ade1c48f1076f5ea49",
+    "scripts/benchmark.py": "4781a67d2062109a2902b498362072703bdb82c8403b6b7c0370e8980e5bfd5e",
+    "scripts/bench_paired.c": "6237d7851177581abe81fe61abd1d7a121a1aeadf7701b386da397a460640d66",
+    "scripts/bench_empty.s": "aefc7643ef4684c7b3fad7f7086813ece385cf8b2f2c29a3dc2011ed6c1ebc14"
+  },
+  "tests": [
+    {
+      "variant": "65a210bb6a4c",
+      "returncode": 0,
+      "random_cases": 1000000,
+      "inputs": 1008012,
+      "assembly_calls": 2016028,
+      "binary_sha256": "eb19895c5c1e0b9e7475a87f525cb299a0cb3977e0f697aab678d28fd452fbd5",
+      "seed": "0x25519",
+      "text_sha256": "405093f0007260e7a50796a76d6c71fe6e029e3363ac4d20e3fe4095d645b157"
+    },
+    {
+      "variant": "043d7a693cb3",
+      "returncode": 0,
+      "random_cases": 1000000,
+      "inputs": 1008012,
+      "assembly_calls": 2016028,
+      "binary_sha256": "83cc67a598d96ee447ac686cc02c9e6916c5d4144208c6de76dee3025a81aec8",
+      "seed": "0x25519",
+      "text_sha256": "8ae714fd74cd99234c39c35e0150148ef616342b50a04ccb116b08933d5ad820"
+    },
+    {
+      "variant": "f8a6dea8cb0e",
+      "returncode": 0,
+      "random_cases": 1000000,
+      "inputs": 1008012,
+      "assembly_calls": 2016028,
+      "binary_sha256": "3baf267f76956c73203dc4674c0585eac7591c83bbf5e49bb906668389b590c4",
+      "seed": "0x25519",
+      "text_sha256": "93627b84471d31df6e5ddfcb4428cdd90d9130a37cbf68bc207e1f0a7bcd5e3e"
+    }
+  ],
+  "runs": [
+    {
+      "round": 1,
+      "link_order": "forward",
+      "input_index": 0,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:37.331320+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "40894",
+        "loadavg": "0.40 0.10 0.03 1/300 2913",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800457088"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:41.006851+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "40894",
+        "loadavg": "0.44 0.11 0.04 1/300 2916",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800404352"
+      },
+      "measurement_file": "runs/round-1-forward-input-0.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 4546.155,
+          "net_p50": 4546.267,
+          "net_p90": 4546.417,
+          "raw_p10": 4556.342,
+          "raw_p50": 4556.448,
+          "raw_p90": 4556.593,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3997.62,
+          "net_p50": 3997.765,
+          "net_p90": 3997.957,
+          "raw_p10": 4007.8,
+          "raw_p50": 4007.95,
+          "raw_p90": 4008.134,
+          "delta_baseline_p50": -548.553
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3917.198,
+          "net_p50": 3917.232,
+          "net_p90": 3917.422,
+          "raw_p10": 3927.392,
+          "raw_p50": 3927.412,
+          "raw_p90": 3927.607,
+          "delta_baseline_p50": -629.018
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 10.178,
+          "raw_p50": 10.181,
+          "raw_p90": 10.195,
+          "delta_baseline_p50": -4546.267
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "link_order": "reverse",
+      "input_index": 0,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:41.022089+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "40894",
+        "loadavg": "0.44 0.11 0.04 1/300 2918",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800457088"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:44.683963+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "40407",
+        "loadavg": "0.44 0.11 0.04 1/300 2921",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800457088"
+      },
+      "measurement_file": "runs/round-1-reverse-input-0.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 4546.148,
+          "net_p50": 4546.21,
+          "net_p90": 4546.332,
+          "raw_p10": 4556.333,
+          "raw_p50": 4556.395,
+          "raw_p90": 4556.513,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3997.629,
+          "net_p50": 3997.761,
+          "net_p90": 3997.883,
+          "raw_p10": 4007.816,
+          "raw_p50": 4007.943,
+          "raw_p90": 4008.061,
+          "delta_baseline_p50": -548.468
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3916.218,
+          "net_p50": 3917.216,
+          "net_p90": 3917.518,
+          "raw_p10": 3926.406,
+          "raw_p50": 3927.398,
+          "raw_p90": 3927.699,
+          "delta_baseline_p50": -629.069
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 10.178,
+          "raw_p50": 10.182,
+          "raw_p90": 10.195,
+          "delta_baseline_p50": -4546.21
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "link_order": "forward",
+      "input_index": 0,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:44.699401+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "39433",
+        "loadavg": "0.44 0.11 0.04 1/300 2923",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800457088"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:48.363278+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "40894",
+        "loadavg": "0.49 0.13 0.04 1/300 2926",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800404352"
+      },
+      "measurement_file": "runs/round-2-forward-input-0.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 4546.156,
+          "net_p50": 4546.246,
+          "net_p90": 4546.395,
+          "raw_p10": 4556.361,
+          "raw_p50": 4556.452,
+          "raw_p90": 4556.6,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3997.619,
+          "net_p50": 3997.757,
+          "net_p90": 3997.888,
+          "raw_p10": 4007.82,
+          "raw_p50": 4007.959,
+          "raw_p90": 4008.09,
+          "delta_baseline_p50": -548.541
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3916.22,
+          "net_p50": 3917.229,
+          "net_p90": 3917.405,
+          "raw_p10": 3926.419,
+          "raw_p50": 3927.431,
+          "raw_p90": 3927.609,
+          "delta_baseline_p50": -629.028
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 10.198,
+          "raw_p50": 10.202,
+          "raw_p90": 10.215,
+          "delta_baseline_p50": -4546.246
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "link_order": "reverse",
+      "input_index": 0,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:48.379067+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "41868",
+        "loadavg": "0.49 0.13 0.04 2/300 2928",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800457088"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:52.043664+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "40407",
+        "loadavg": "0.53 0.14 0.05 2/300 2931",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800457088"
+      },
+      "measurement_file": "runs/round-2-reverse-input-0.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 4546.148,
+          "net_p50": 4546.219,
+          "net_p90": 4546.364,
+          "raw_p10": 4556.333,
+          "raw_p50": 4556.403,
+          "raw_p90": 4556.53,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3997.628,
+          "net_p50": 3997.765,
+          "net_p90": 3997.949,
+          "raw_p10": 4007.816,
+          "raw_p50": 4007.948,
+          "raw_p90": 4008.134,
+          "delta_baseline_p50": -548.462
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3916.218,
+          "net_p50": 3917.216,
+          "net_p90": 3917.518,
+          "raw_p10": 3926.406,
+          "raw_p50": 3927.398,
+          "raw_p90": 3927.703,
+          "delta_baseline_p50": -629.059
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 10.178,
+          "raw_p50": 10.182,
+          "raw_p90": 10.195,
+          "delta_baseline_p50": -4546.219
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "link_order": "forward",
+      "input_index": 0,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:52.060082+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "41381",
+        "loadavg": "0.53 0.14 0.05 1/300 2933",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800404352"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:55.723329+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "40407",
+        "loadavg": "0.53 0.14 0.05 1/300 2936",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800404352"
+      },
+      "measurement_file": "runs/round-3-forward-input-0.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 4546.155,
+          "net_p50": 4546.253,
+          "net_p90": 4546.391,
+          "raw_p10": 4556.339,
+          "raw_p50": 4556.437,
+          "raw_p90": 4556.573,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3997.619,
+          "net_p50": 3997.761,
+          "net_p90": 3997.944,
+          "raw_p10": 4007.8,
+          "raw_p50": 4007.944,
+          "raw_p90": 4008.126,
+          "delta_baseline_p50": -548.539
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3917.198,
+          "net_p50": 3917.231,
+          "net_p90": 3917.406,
+          "raw_p10": 3927.389,
+          "raw_p50": 3927.413,
+          "raw_p90": 3927.594,
+          "delta_baseline_p50": -629.012
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 10.178,
+          "raw_p50": 10.182,
+          "raw_p90": 10.195,
+          "delta_baseline_p50": -4546.253
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "link_order": "reverse",
+      "input_index": 0,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:55.740246+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "40407",
+        "loadavg": "0.53 0.14 0.05 1/300 2938",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800457088"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:59.402665+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "40407",
+        "loadavg": "0.57 0.16 0.05 1/300 2941",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800457088"
+      },
+      "measurement_file": "runs/round-3-reverse-input-0.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 4546.15,
+          "net_p50": 4546.226,
+          "net_p90": 4546.328,
+          "raw_p10": 4556.333,
+          "raw_p50": 4556.412,
+          "raw_p90": 4556.515,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3997.623,
+          "net_p50": 3997.737,
+          "net_p90": 3997.866,
+          "raw_p10": 4007.813,
+          "raw_p50": 4007.919,
+          "raw_p90": 4008.053,
+          "delta_baseline_p50": -548.529
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3916.214,
+          "net_p50": 3917.216,
+          "net_p90": 3917.512,
+          "raw_p10": 3926.396,
+          "raw_p50": 3927.398,
+          "raw_p90": 3927.697,
+          "delta_baseline_p50": -629.015
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 10.178,
+          "raw_p50": 10.182,
+          "raw_p90": 10.195,
+          "delta_baseline_p50": -4546.226
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "round": 0,
+      "link_order": "forward",
+      "input_index": 1,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:59.419865+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "41381",
+        "loadavg": "0.57 0.16 0.05 2/300 2943",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800457088"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:13:03.087179+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "40894",
+        "loadavg": "0.60 0.17 0.06 1/300 2946",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800457088"
+      },
+      "measurement_file": "runs/round-0-forward-input-1.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 4546.148,
+          "net_p50": 4546.237,
+          "net_p90": 4546.397,
+          "raw_p10": 4556.339,
+          "raw_p50": 4556.422,
+          "raw_p90": 4556.578,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3997.618,
+          "net_p50": 3997.753,
+          "net_p90": 3998.004,
+          "raw_p10": 4007.801,
+          "raw_p50": 4007.935,
+          "raw_p90": 4008.162,
+          "delta_baseline_p50": -548.538
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3916.817,
+          "net_p50": 3917.273,
+          "net_p90": 3917.433,
+          "raw_p10": 3926.999,
+          "raw_p50": 3927.459,
+          "raw_p90": 3927.623,
+          "delta_baseline_p50": -628.975
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 10.178,
+          "raw_p50": 10.182,
+          "raw_p90": 10.195,
+          "delta_baseline_p50": -4546.237
+        }
+      ]
+    },
+    {
+      "round": 0,
+      "link_order": "forward",
+      "input_index": 2,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:13:03.104559+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "40407",
+        "loadavg": "0.60 0.17 0.06 1/300 2948",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800457088"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:13:06.768326+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.34+rpt-rpi-v8",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 400 Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "1800000",
+          "scaling_min_freq": "600000",
+          "scaling_max_freq": "1800000",
+          "cpuinfo_max_freq": "1800000"
+        },
+        "temperature_millidegrees": "40407",
+        "loadavg": "0.64 0.18 0.06 1/300 2951",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(48)=1800457088"
+      },
+      "measurement_file": "runs/round-0-forward-input-2.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 4546.147,
+          "net_p50": 4546.238,
+          "net_p90": 4546.398,
+          "raw_p10": 4556.342,
+          "raw_p50": 4556.422,
+          "raw_p90": 4556.586,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3997.619,
+          "net_p50": 3997.757,
+          "net_p90": 3997.868,
+          "raw_p10": 4007.801,
+          "raw_p50": 4007.945,
+          "raw_p90": 4008.065,
+          "delta_baseline_p50": -548.526
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3916.926,
+          "net_p50": 3917.235,
+          "net_p90": 3917.409,
+          "raw_p10": 3927.117,
+          "raw_p50": 3927.415,
+          "raw_p90": 3927.598,
+          "delta_baseline_p50": -629.005
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 10.178,
+          "raw_p50": 10.19,
+          "raw_p90": 10.195,
+          "delta_baseline_p50": -4546.238
+        }
+      ]
+    }
+  ],
+  "before": {
+    "captured_at_utc": "2026-09-14T08:12:06.705712+00:00",
+    "uname": {
+      "system": "Linux",
+      "node": "raspberrypi",
+      "release": "6.18.34+rpt-rpi-v8",
+      "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+      "machine": "aarch64",
+      "processor": ""
+    },
+    "model": "Raspberry Pi 400 Rev 1.0",
+    "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+    "perf_event_paranoid": "2",
+    "cpu": 3,
+    "control_cpu": 0,
+    "available_affinity": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "frequency": {
+      "scaling_governor": "ondemand",
+      "scaling_cur_freq": "1800000",
+      "scaling_min_freq": "600000",
+      "scaling_max_freq": "1800000",
+      "cpuinfo_max_freq": "1800000"
+    },
+    "temperature_millidegrees": "37485",
+    "loadavg": "0.00 0.00 0.00 1/301 2864",
+    "throttled": "throttled=0x0",
+    "clock": "frequency(48)=1800457088"
+  },
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "objcopy": "GNU objcopy (GNU Binutils for Debian) 2.44\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis program is free software; you may redistribute it under the terms of\nthe GNU General Public License version 3 or (at your option) any later version.\nThis program has absolutely no warranty.\n",
+  "gmp": {
+    "cflags": [
+      "-I/tmp/cesare-invert-gmp-20260914-v1/sysroot/usr/include/aarch64-linux-gnu"
+    ],
+    "libs": [
+      "-L/tmp/cesare-invert-gmp-20260914-v1/sysroot/usr/lib/aarch64-linux-gnu",
+      "-lgmp"
+    ],
+    "pkg_config_path": "/tmp/cesare-invert-gmp-20260914-v1/sysroot/usr/lib/aarch64-linux-gnu/pkgconfig",
+    "pkg_config_sysroot_dir": "/tmp/cesare-invert-gmp-20260914-v1/sysroot"
+  },
+  "benchmark_before": {
+    "captured_at_utc": "2026-09-14T08:12:37.317382+00:00",
+    "uname": {
+      "system": "Linux",
+      "node": "raspberrypi",
+      "release": "6.18.34+rpt-rpi-v8",
+      "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+      "machine": "aarch64",
+      "processor": ""
+    },
+    "model": "Raspberry Pi 400 Rev 1.0",
+    "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+    "perf_event_paranoid": "2",
+    "cpu": 3,
+    "control_cpu": 0,
+    "available_affinity": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "frequency": {
+      "scaling_governor": "ondemand",
+      "scaling_cur_freq": "1800000",
+      "scaling_min_freq": "600000",
+      "scaling_max_freq": "1800000",
+      "cpuinfo_max_freq": "1800000"
+    },
+    "temperature_millidegrees": "40407",
+    "loadavg": "0.40 0.10 0.03 1/300 2911",
+    "throttled": "throttled=0x0",
+    "clock": "frequency(48)=1800404352"
+  },
+  "summary": {
+    "units": "user CPU cycles per inversion",
+    "runs_per_variant": 6,
+    "aggregation": "median of per-run paired net medians",
+    "results": {
+      "65a210bb6a4c": {
+        "net_median": 4546.236,
+        "net_range": [
+          4546.21,
+          4546.267
+        ],
+        "raw_median": 4556.4245,
+        "delta_baseline_median": 0.0,
+        "per_run_net_medians": [
+          4546.267,
+          4546.21,
+          4546.246,
+          4546.219,
+          4546.253,
+          4546.226
+        ]
+      },
+      "043d7a693cb3": {
+        "net_median": 3997.761,
+        "net_range": [
+          3997.737,
+          3997.765
+        ],
+        "raw_median": 4007.946,
+        "delta_baseline_median": -548.534,
+        "per_run_net_medians": [
+          3997.765,
+          3997.761,
+          3997.757,
+          3997.765,
+          3997.761,
+          3997.737
+        ]
+      },
+      "f8a6dea8cb0e": {
+        "net_median": 3917.2225,
+        "net_range": [
+          3917.216,
+          3917.232
+        ],
+        "raw_median": 3927.4049999999997,
+        "delta_baseline_median": -629.023,
+        "per_run_net_medians": [
+          3917.232,
+          3917.216,
+          3917.229,
+          3917.216,
+          3917.231,
+          3917.216
+        ]
+      },
+      "empty": {
+        "net_median": 0.0,
+        "net_range": [
+          0.0,
+          0.0
+        ],
+        "raw_median": 10.182,
+        "delta_baseline_median": -4546.236,
+        "per_run_net_medians": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ranking": [
+      "f8a6dea8cb0e",
+      "043d7a693cb3",
+      "65a210bb6a4c"
+    ]
+  },
+  "after": {
+    "captured_at_utc": "2026-09-14T08:13:06.787156+00:00",
+    "uname": {
+      "system": "Linux",
+      "node": "raspberrypi",
+      "release": "6.18.34+rpt-rpi-v8",
+      "version": "#1 SMP PREEMPT Debian 1:6.18.34-1+rpt1 (2026-06-09)",
+      "machine": "aarch64",
+      "processor": ""
+    },
+    "model": "Raspberry Pi 400 Rev 1.0",
+    "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm crc32 cpuid\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x0\nCPU part\t: 0xd08\nCPU revision\t: 3\n\nRevision\t: c03130\nSerial\t\t: 10000000890040b8\nModel\t\t: Raspberry Pi 400 Rev 1.0",
+    "perf_event_paranoid": "2",
+    "cpu": 3,
+    "control_cpu": 0,
+    "available_affinity": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "frequency": {
+      "scaling_governor": "ondemand",
+      "scaling_cur_freq": "1800000",
+      "scaling_min_freq": "600000",
+      "scaling_max_freq": "1800000",
+      "cpuinfo_max_freq": "1800000"
+    },
+    "temperature_millidegrees": "42355",
+    "loadavg": "0.64 0.18 0.06 2/300 2953",
+    "throttled": "throttled=0x0",
+    "clock": "frequency(48)=1800404352"
+  }
+}

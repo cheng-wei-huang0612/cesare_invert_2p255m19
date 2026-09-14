@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "date": "2026-09-14",
+  "hosts": [
+    {
+      "id": "pi4",
+      "archive": "pi4.zip",
+      "model": "Raspberry Pi 400 Rev 1.0"
+    },
+    {
+      "id": "pi5",
+      "archive": "pi5.zip",
+      "model": "Raspberry Pi 5 Model B Rev 1.0"
+    }
+  ],
+  "files": [
+    {
+      "path": "build-switch.json",
+      "sha256": "147fd71fa3608dca6100fe94a0752a4fee288a0345728fa3ce5e9d4ca4893b2a"
+    },
+    {
+      "path": "docker-pi4.json",
+      "sha256": "f760d31afaa2d8c8681e922b72358370142f6492b07d378189380df0c12206cd"
+    },
+    {
+      "path": "pi4/commands.json",
+      "sha256": "dcdb0b1bc9aed7b663bd73abf7ed9289adf92d32309af4600cc432e874fb6383"
+    },
+    {
+      "path": "pi4/results.json",
+      "sha256": "ceb9fc822249bab0196b82fe103af3e6a21799971c30c500063348fe2c51665f"
+    },
+    {
+      "path": "pi4/summary.json",
+      "sha256": "701e9fdf627e310f065538a09dc06b0a512b49ec64247a04ae929a55789a25aa"
+    },
+    {
+      "path": "pi4/validation/validation.json",
+      "sha256": "9cc5dca21fcb26dd7c1df8f5c335fde24d99dfe8d8af4957c6ef59348b1b9ec8"
+    },
+    {
+      "path": "pi4.zip",
+      "sha256": "29fc54980e5c418ce4245ab19abf3edbde21266f42b9921e2e4e8c3525cf6a22"
+    },
+    {
+      "path": "pi5/commands.json",
+      "sha256": "2c5bf758afbc9ff70568cc968a78c672e8529f4885b50fdd1f365fea0911f983"
+    },
+    {
+      "path": "pi5/results.json",
+      "sha256": "a75cf1d233bbd8b3c5e0a1c266a7425a73ea0826566ce82321dcc4fa4a55df2b"
+    },
+    {
+      "path": "pi5/summary.json",
+      "sha256": "006c267e627b93b07d401dc1864346fcf2be06b33d65a29eed5a7478483297ba"
+    },
+    {
+      "path": "pi5/validation/validation.json",
+      "sha256": "63fb4f6ff896d6c5e28f6d019f612c9d63dca184525d4f89402faed1f2b0c161"
+    },
+    {
+      "path": "pi5.zip",
+      "sha256": "5d34e4d9ca673e8bcd8aee891ff5b1fc59efdb2c16fa22bde2de0155a5bb1e28"
+    }
+  ]
+}

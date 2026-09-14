@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "recommended": {
+    "pi4": "invert25519_f8a6dea8cb0e.s",
+    "pi5": "invert25519_043d7a693cb3.s"
+  },
+  "artifacts": [
+    {
+      "path": "invert25519_65a210bb6a4c.s",
+      "sha256": "186cc14cba822468c920d4274a780d864db4c8b439c0e11e127dffbd1380c8cf",
+      "description": "Earlier default-alt implementation",
+      "exported_symbol": "invert25519"
+    },
+    {
+      "path": "invert25519_043d7a693cb3.s",
+      "sha256": "1333983811e657c87e9405de02a968c62f8f947b53dc63b3c7c186c805445670",
+      "description": "Pi 5 / Cortex-A76 recommendation",
+      "exported_symbol": "invert25519"
+    },
+    {
+      "path": "invert25519_f8a6dea8cb0e.s",
+      "sha256": "f5502485c80d5142cae369c0279481cd45a87c45ca6f7db061d20c14a42bc850",
+      "description": "Pi 4 / Cortex-A72 recommendation",
+      "exported_symbol": "invert25519"
+    }
+  ]
+}

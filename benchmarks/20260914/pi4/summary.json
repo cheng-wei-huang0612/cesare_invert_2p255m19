@@ -1,0 +1,80 @@
+{
+  "units": "user CPU cycles per inversion",
+  "runs_per_variant": 6,
+  "aggregation": "median of per-run paired net medians",
+  "results": {
+    "65a210bb6a4c": {
+      "net_median": 4546.236,
+      "net_range": [
+        4546.21,
+        4546.267
+      ],
+      "raw_median": 4556.4245,
+      "delta_baseline_median": 0.0,
+      "per_run_net_medians": [
+        4546.267,
+        4546.21,
+        4546.246,
+        4546.219,
+        4546.253,
+        4546.226
+      ]
+    },
+    "043d7a693cb3": {
+      "net_median": 3997.761,
+      "net_range": [
+        3997.737,
+        3997.765
+      ],
+      "raw_median": 4007.946,
+      "delta_baseline_median": -548.534,
+      "per_run_net_medians": [
+        3997.765,
+        3997.761,
+        3997.757,
+        3997.765,
+        3997.761,
+        3997.737
+      ]
+    },
+    "f8a6dea8cb0e": {
+      "net_median": 3917.2225,
+      "net_range": [
+        3917.216,
+        3917.232
+      ],
+      "raw_median": 3927.4049999999997,
+      "delta_baseline_median": -629.023,
+      "per_run_net_medians": [
+        3917.232,
+        3917.216,
+        3917.229,
+        3917.216,
+        3917.231,
+        3917.216
+      ]
+    },
+    "empty": {
+      "net_median": 0.0,
+      "net_range": [
+        0.0,
+        0.0
+      ],
+      "raw_median": 10.182,
+      "delta_baseline_median": -4546.236,
+      "per_run_net_medians": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "ranking": [
+    "f8a6dea8cb0e",
+    "043d7a693cb3",
+    "65a210bb6a4c"
+  ]
+}

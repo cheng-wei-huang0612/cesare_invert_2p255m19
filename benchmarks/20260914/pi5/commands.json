@@ -1,0 +1,1055 @@
+[
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373526.55994,
+    "stdout": "logs/000-before-throttled.stdout.txt",
+    "stderr": "logs/000-before-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.003530263900756836
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373526.5638795,
+    "stdout": "logs/001-before-clock.stdout.txt",
+    "stderr": "logs/001-before-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.013344049453735352
+  },
+  {
+    "argv": [
+      "cc",
+      "--version"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373526.577524,
+    "stdout": "logs/002-compiler-version.stdout.txt",
+    "stderr": "logs/002-compiler-version.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0025370121002197266
+  },
+  {
+    "argv": [
+      "objcopy",
+      "--version"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373526.5803618,
+    "stdout": "logs/003-objcopy-version.stdout.txt",
+    "stderr": "logs/003-objcopy-version.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0026733875274658203
+  },
+  {
+    "argv": [
+      "pkg-config",
+      "--cflags",
+      "gmp"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373526.583397,
+    "stdout": "logs/004-gmp-cflags.stdout.txt",
+    "stderr": "logs/004-gmp-cflags.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0024929046630859375
+  },
+  {
+    "argv": [
+      "pkg-config",
+      "--libs",
+      "gmp"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373526.5862439,
+    "stdout": "logs/005-gmp-libs.stdout.txt",
+    "stderr": "logs/005-gmp-libs.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0021762847900390625
+  },
+  {
+    "argv": [
+      "cc",
+      "-O3",
+      "-g",
+      "-fno-pie",
+      "-Wall",
+      "-Wextra",
+      "-std=c11",
+      "-c",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/sources/test.c",
+      "-o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/test.o"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373526.590649,
+    "stdout": "logs/006-compile-test.stdout.txt",
+    "stderr": "logs/006-compile-test.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.22243356704711914
+  },
+  {
+    "argv": [
+      "cc",
+      "-O3",
+      "-g",
+      "-fno-pie",
+      "-Wall",
+      "-Wextra",
+      "-c",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/sources/invert25519_65a210bb6a4c.s",
+      "-o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/65a210bb6a4c.o"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373526.8134758,
+    "stdout": "logs/007-compile-65a210bb6a4c.stdout.txt",
+    "stderr": "logs/007-compile-65a210bb6a4c.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.006911277770996094
+  },
+  {
+    "argv": [
+      "cc",
+      "-no-pie",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/test.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/65a210bb6a4c.o",
+      "-lgmp",
+      "-o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/validation/test-65a210bb6a4c"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373526.8207624,
+    "stdout": "logs/008-link-test-65a210bb6a4c.stdout.txt",
+    "stderr": "logs/008-link-test-65a210bb6a4c.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.021715641021728516
+  },
+  {
+    "argv": [
+      "taskset",
+      "-c",
+      "3",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/validation/test-65a210bb6a4c",
+      "1000000",
+      "0x25519"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373526.84284,
+    "stdout": "logs/009-test-65a210bb6a4c.stdout.txt",
+    "stderr": "logs/009-test-65a210bb6a4c.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 5.611390590667725
+  },
+  {
+    "argv": [
+      "objcopy",
+      "--redefine-sym",
+      "invert25519=bench_65a210bb6a4c",
+      "--redefine-sym",
+      "_invert25519=_bench_65a210bb6a4c",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/65a210bb6a4c.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/65a210bb6a4c-bench.o"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373532.4554617,
+    "stdout": "logs/010-rename-65a210bb6a4c.stdout.txt",
+    "stderr": "logs/010-rename-65a210bb6a4c.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.00278472900390625
+  },
+  {
+    "argv": [
+      "objcopy",
+      "-O",
+      "binary",
+      "--only-section=.text",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/65a210bb6a4c.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/65a210bb6a4c.text"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373532.4585383,
+    "stdout": "logs/011-text-original-65a210bb6a4c.stdout.txt",
+    "stderr": "logs/011-text-original-65a210bb6a4c.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0024423599243164062
+  },
+  {
+    "argv": [
+      "objcopy",
+      "-O",
+      "binary",
+      "--only-section=.text",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/65a210bb6a4c-bench.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/65a210bb6a4c-bench.text"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373532.4612412,
+    "stdout": "logs/012-text-renamed-65a210bb6a4c.stdout.txt",
+    "stderr": "logs/012-text-renamed-65a210bb6a4c.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.002389192581176758
+  },
+  {
+    "argv": [
+      "cc",
+      "-O3",
+      "-g",
+      "-fno-pie",
+      "-Wall",
+      "-Wextra",
+      "-c",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/sources/invert25519_043d7a693cb3.s",
+      "-o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/043d7a693cb3.o"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373532.4640014,
+    "stdout": "logs/013-compile-043d7a693cb3.stdout.txt",
+    "stderr": "logs/013-compile-043d7a693cb3.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.006784200668334961
+  },
+  {
+    "argv": [
+      "cc",
+      "-no-pie",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/test.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/043d7a693cb3.o",
+      "-lgmp",
+      "-o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/validation/test-043d7a693cb3"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373532.4712074,
+    "stdout": "logs/014-link-test-043d7a693cb3.stdout.txt",
+    "stderr": "logs/014-link-test-043d7a693cb3.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.021200895309448242
+  },
+  {
+    "argv": [
+      "taskset",
+      "-c",
+      "3",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/validation/test-043d7a693cb3",
+      "1000000",
+      "0x25519"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373532.4928203,
+    "stdout": "logs/015-test-043d7a693cb3.stdout.txt",
+    "stderr": "logs/015-test-043d7a693cb3.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 5.351196050643921
+  },
+  {
+    "argv": [
+      "objcopy",
+      "--redefine-sym",
+      "invert25519=bench_043d7a693cb3",
+      "--redefine-sym",
+      "_invert25519=_bench_043d7a693cb3",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/043d7a693cb3.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/043d7a693cb3-bench.o"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373537.8450058,
+    "stdout": "logs/016-rename-043d7a693cb3.stdout.txt",
+    "stderr": "logs/016-rename-043d7a693cb3.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0028214454650878906
+  },
+  {
+    "argv": [
+      "objcopy",
+      "-O",
+      "binary",
+      "--only-section=.text",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/043d7a693cb3.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/043d7a693cb3.text"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373537.8481905,
+    "stdout": "logs/017-text-original-043d7a693cb3.stdout.txt",
+    "stderr": "logs/017-text-original-043d7a693cb3.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0025327205657958984
+  },
+  {
+    "argv": [
+      "objcopy",
+      "-O",
+      "binary",
+      "--only-section=.text",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/043d7a693cb3-bench.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/043d7a693cb3-bench.text"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373537.8510427,
+    "stdout": "logs/018-text-renamed-043d7a693cb3.stdout.txt",
+    "stderr": "logs/018-text-renamed-043d7a693cb3.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0024907588958740234
+  },
+  {
+    "argv": [
+      "cc",
+      "-O3",
+      "-g",
+      "-fno-pie",
+      "-Wall",
+      "-Wextra",
+      "-c",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/sources/invert25519_f8a6dea8cb0e.s",
+      "-o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/f8a6dea8cb0e.o"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373537.85396,
+    "stdout": "logs/019-compile-f8a6dea8cb0e.stdout.txt",
+    "stderr": "logs/019-compile-f8a6dea8cb0e.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0067958831787109375
+  },
+  {
+    "argv": [
+      "cc",
+      "-no-pie",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/test.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/f8a6dea8cb0e.o",
+      "-lgmp",
+      "-o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/validation/test-f8a6dea8cb0e"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373537.861206,
+    "stdout": "logs/020-link-test-f8a6dea8cb0e.stdout.txt",
+    "stderr": "logs/020-link-test-f8a6dea8cb0e.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.022021055221557617
+  },
+  {
+    "argv": [
+      "taskset",
+      "-c",
+      "3",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/validation/test-f8a6dea8cb0e",
+      "1000000",
+      "0x25519"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373537.883661,
+    "stdout": "logs/021-test-f8a6dea8cb0e.stdout.txt",
+    "stderr": "logs/021-test-f8a6dea8cb0e.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 5.384653806686401
+  },
+  {
+    "argv": [
+      "objcopy",
+      "--redefine-sym",
+      "invert25519=bench_f8a6dea8cb0e",
+      "--redefine-sym",
+      "_invert25519=_bench_f8a6dea8cb0e",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/f8a6dea8cb0e.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/f8a6dea8cb0e-bench.o"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373543.2693615,
+    "stdout": "logs/022-rename-f8a6dea8cb0e.stdout.txt",
+    "stderr": "logs/022-rename-f8a6dea8cb0e.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0027768611907958984
+  },
+  {
+    "argv": [
+      "objcopy",
+      "-O",
+      "binary",
+      "--only-section=.text",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/f8a6dea8cb0e.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/f8a6dea8cb0e.text"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373543.2725234,
+    "stdout": "logs/023-text-original-f8a6dea8cb0e.stdout.txt",
+    "stderr": "logs/023-text-original-f8a6dea8cb0e.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.002558469772338867
+  },
+  {
+    "argv": [
+      "objcopy",
+      "-O",
+      "binary",
+      "--only-section=.text",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/f8a6dea8cb0e-bench.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/f8a6dea8cb0e-bench.text"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373543.2754471,
+    "stdout": "logs/024-text-renamed-f8a6dea8cb0e.stdout.txt",
+    "stderr": "logs/024-text-renamed-f8a6dea8cb0e.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0024466514587402344
+  },
+  {
+    "argv": [
+      "cc",
+      "-O3",
+      "-g",
+      "-fno-pie",
+      "-Wall",
+      "-Wextra",
+      "-std=c11",
+      "-DBENCH_SAMPLES=501",
+      "-DBENCH_BATCH=1000",
+      "-c",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/sources/scripts/bench_paired.c",
+      "-o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/bench.o"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373543.278395,
+    "stdout": "logs/025-compile-benchmark.stdout.txt",
+    "stderr": "logs/025-compile-benchmark.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.1210184097290039
+  },
+  {
+    "argv": [
+      "cc",
+      "-O3",
+      "-g",
+      "-fno-pie",
+      "-Wall",
+      "-Wextra",
+      "-c",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/sources/scripts/bench_empty.s",
+      "-o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/empty.o"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373543.3998983,
+    "stdout": "logs/026-compile-empty.stdout.txt",
+    "stderr": "logs/026-compile-empty.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.004748106002807617
+  },
+  {
+    "argv": [
+      "cc",
+      "-no-pie",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/bench.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/empty.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/65a210bb6a4c-bench.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/043d7a693cb3-bench.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/f8a6dea8cb0e-bench.o",
+      "-o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/compare-forward"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373543.405115,
+    "stdout": "logs/027-link-forward.stdout.txt",
+    "stderr": "logs/027-link-forward.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.020203590393066406
+  },
+  {
+    "argv": [
+      "cc",
+      "-no-pie",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/bench.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/empty.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/f8a6dea8cb0e-bench.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/043d7a693cb3-bench.o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/objects/65a210bb6a4c-bench.o",
+      "-o",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/compare-reverse"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373543.4258459,
+    "stdout": "logs/028-link-reverse.stdout.txt",
+    "stderr": "logs/028-link-reverse.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.020986080169677734
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373543.4477844,
+    "stdout": "logs/029-benchmark-before-throttled.stdout.txt",
+    "stderr": "logs/029-benchmark-before-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.003054380416870117
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373543.4512484,
+    "stdout": "logs/030-benchmark-before-clock.stdout.txt",
+    "stderr": "logs/030-benchmark-before-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.01293492317199707
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373543.4652748,
+    "stdout": "logs/031-round-1-forward-input-0-before-throttled.stdout.txt",
+    "stderr": "logs/031-round-1-forward-input-0-before-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0028841495513916016
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373543.468547,
+    "stdout": "logs/032-round-1-forward-input-0-before-clock.stdout.txt",
+    "stderr": "logs/032-round-1-forward-input-0-before-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.012877702713012695
+  },
+  {
+    "argv": [
+      "taskset",
+      "-c",
+      "3",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/compare-forward",
+      "0"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373543.4817855,
+    "stdout": "logs/033-round-1-forward-input-0.stdout.txt",
+    "stderr": "logs/033-round-1-forward-input-0.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 2.238917589187622
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373545.7219515,
+    "stdout": "logs/034-round-1-forward-input-0-after-throttled.stdout.txt",
+    "stderr": "logs/034-round-1-forward-input-0-after-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.003083467483520508
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373545.7255058,
+    "stdout": "logs/035-round-1-forward-input-0-after-clock.stdout.txt",
+    "stderr": "logs/035-round-1-forward-input-0-after-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.012964487075805664
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373545.7401154,
+    "stdout": "logs/036-round-1-reverse-input-0-before-throttled.stdout.txt",
+    "stderr": "logs/036-round-1-reverse-input-0-before-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0029685497283935547
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373545.7435145,
+    "stdout": "logs/037-round-1-reverse-input-0-before-clock.stdout.txt",
+    "stderr": "logs/037-round-1-reverse-input-0-before-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.012945175170898438
+  },
+  {
+    "argv": [
+      "taskset",
+      "-c",
+      "3",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/compare-reverse",
+      "0"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373545.756856,
+    "stdout": "logs/038-round-1-reverse-input-0.stdout.txt",
+    "stderr": "logs/038-round-1-reverse-input-0.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 2.222579002380371
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373547.980736,
+    "stdout": "logs/039-round-1-reverse-input-0-after-throttled.stdout.txt",
+    "stderr": "logs/039-round-1-reverse-input-0-after-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0031218528747558594
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373547.9843476,
+    "stdout": "logs/040-round-1-reverse-input-0-after-clock.stdout.txt",
+    "stderr": "logs/040-round-1-reverse-input-0-after-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.013006210327148438
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373547.9991,
+    "stdout": "logs/041-round-2-forward-input-0-before-throttled.stdout.txt",
+    "stderr": "logs/041-round-2-forward-input-0-before-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.003166675567626953
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373548.002743,
+    "stdout": "logs/042-round-2-forward-input-0-before-clock.stdout.txt",
+    "stderr": "logs/042-round-2-forward-input-0-before-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.013036251068115234
+  },
+  {
+    "argv": [
+      "taskset",
+      "-c",
+      "3",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/compare-forward",
+      "0"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373548.0162032,
+    "stdout": "logs/043-round-2-forward-input-0.stdout.txt",
+    "stderr": "logs/043-round-2-forward-input-0.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 2.222085952758789
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373550.2395787,
+    "stdout": "logs/044-round-2-forward-input-0-after-throttled.stdout.txt",
+    "stderr": "logs/044-round-2-forward-input-0-after-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0031538009643554688
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373550.243241,
+    "stdout": "logs/045-round-2-forward-input-0-after-clock.stdout.txt",
+    "stderr": "logs/045-round-2-forward-input-0-after-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.013012409210205078
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373550.258051,
+    "stdout": "logs/046-round-2-reverse-input-0-before-throttled.stdout.txt",
+    "stderr": "logs/046-round-2-reverse-input-0-before-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.003010988235473633
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373550.2615345,
+    "stdout": "logs/047-round-2-reverse-input-0-before-clock.stdout.txt",
+    "stderr": "logs/047-round-2-reverse-input-0-before-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.012979269027709961
+  },
+  {
+    "argv": [
+      "taskset",
+      "-c",
+      "3",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/compare-reverse",
+      "0"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373550.274951,
+    "stdout": "logs/048-round-2-reverse-input-0.stdout.txt",
+    "stderr": "logs/048-round-2-reverse-input-0.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 2.222384214401245
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373552.4986417,
+    "stdout": "logs/049-round-2-reverse-input-0-after-throttled.stdout.txt",
+    "stderr": "logs/049-round-2-reverse-input-0-after-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0031490325927734375
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373552.5023255,
+    "stdout": "logs/050-round-2-reverse-input-0-after-clock.stdout.txt",
+    "stderr": "logs/050-round-2-reverse-input-0-after-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.013025045394897461
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373552.5172563,
+    "stdout": "logs/051-round-3-forward-input-0-before-throttled.stdout.txt",
+    "stderr": "logs/051-round-3-forward-input-0-before-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0030341148376464844
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373552.5207846,
+    "stdout": "logs/052-round-3-forward-input-0-before-clock.stdout.txt",
+    "stderr": "logs/052-round-3-forward-input-0-before-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.01299595832824707
+  },
+  {
+    "argv": [
+      "taskset",
+      "-c",
+      "3",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/compare-forward",
+      "0"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373552.5342484,
+    "stdout": "logs/053-round-3-forward-input-0.stdout.txt",
+    "stderr": "logs/053-round-3-forward-input-0.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 2.2230703830718994
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373554.7586105,
+    "stdout": "logs/054-round-3-forward-input-0-after-throttled.stdout.txt",
+    "stderr": "logs/054-round-3-forward-input-0-after-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0031502246856689453
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373554.7623138,
+    "stdout": "logs/055-round-3-forward-input-0-after-clock.stdout.txt",
+    "stderr": "logs/055-round-3-forward-input-0-after-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.013038158416748047
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373554.7773697,
+    "stdout": "logs/056-round-3-reverse-input-0-before-throttled.stdout.txt",
+    "stderr": "logs/056-round-3-reverse-input-0-before-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.003104686737060547
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373554.7810643,
+    "stdout": "logs/057-round-3-reverse-input-0-before-clock.stdout.txt",
+    "stderr": "logs/057-round-3-reverse-input-0-before-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.01305699348449707
+  },
+  {
+    "argv": [
+      "taskset",
+      "-c",
+      "3",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/compare-reverse",
+      "0"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373554.7946262,
+    "stdout": "logs/058-round-3-reverse-input-0.stdout.txt",
+    "stderr": "logs/058-round-3-reverse-input-0.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 2.222752809524536
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373557.0187292,
+    "stdout": "logs/059-round-3-reverse-input-0-after-throttled.stdout.txt",
+    "stderr": "logs/059-round-3-reverse-input-0-after-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.003446340560913086
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373557.0228057,
+    "stdout": "logs/060-round-3-reverse-input-0-after-clock.stdout.txt",
+    "stderr": "logs/060-round-3-reverse-input-0-after-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.013254404067993164
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373557.0381937,
+    "stdout": "logs/061-round-0-forward-input-1-before-throttled.stdout.txt",
+    "stderr": "logs/061-round-0-forward-input-1-before-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0031151771545410156
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373557.0418556,
+    "stdout": "logs/062-round-0-forward-input-1-before-clock.stdout.txt",
+    "stderr": "logs/062-round-0-forward-input-1-before-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.013059616088867188
+  },
+  {
+    "argv": [
+      "taskset",
+      "-c",
+      "3",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/compare-forward",
+      "1"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373557.055422,
+    "stdout": "logs/063-round-0-forward-input-1.stdout.txt",
+    "stderr": "logs/063-round-0-forward-input-1.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 2.221902370452881
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373559.2786887,
+    "stdout": "logs/064-round-0-forward-input-1-after-throttled.stdout.txt",
+    "stderr": "logs/064-round-0-forward-input-1-after-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0033104419708251953
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373559.2826087,
+    "stdout": "logs/065-round-0-forward-input-1-after-clock.stdout.txt",
+    "stderr": "logs/065-round-0-forward-input-1-after-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.01309823989868164
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373559.2978878,
+    "stdout": "logs/066-round-0-forward-input-2-before-throttled.stdout.txt",
+    "stderr": "logs/066-round-0-forward-input-2-before-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.00313568115234375
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373559.3016186,
+    "stdout": "logs/067-round-0-forward-input-2-before-clock.stdout.txt",
+    "stderr": "logs/067-round-0-forward-input-2-before-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.01312398910522461
+  },
+  {
+    "argv": [
+      "taskset",
+      "-c",
+      "3",
+      "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference/compare-forward",
+      "2"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373559.3152902,
+    "stdout": "logs/068-round-0-forward-input-2.stdout.txt",
+    "stderr": "logs/068-round-0-forward-input-2.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 2.2238099575042725
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373561.5405166,
+    "stdout": "logs/069-round-0-forward-input-2-after-throttled.stdout.txt",
+    "stderr": "logs/069-round-0-forward-input-2-after-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0032806396484375
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373561.544461,
+    "stdout": "logs/070-round-0-forward-input-2-after-clock.stdout.txt",
+    "stderr": "logs/070-round-0-forward-input-2-after-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.013134241104125977
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "get_throttled"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373561.5601022,
+    "stdout": "logs/071-after-throttled.stdout.txt",
+    "stderr": "logs/071-after-throttled.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.0031774044036865234
+  },
+  {
+    "argv": [
+      "vcgencmd",
+      "measure_clock",
+      "arm"
+    ],
+    "cwd": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference",
+    "started_unix": 1789373561.5638864,
+    "stdout": "logs/072-after-clock.stdout.txt",
+    "stderr": "logs/072-after-clock.stderr.txt",
+    "returncode": 0,
+    "elapsed_seconds": 0.013102293014526367
+  }
+]

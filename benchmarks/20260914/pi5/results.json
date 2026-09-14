@@ -1,0 +1,1194 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "arguments": {
+    "cpu": 3,
+    "control_cpu": 0,
+    "rounds": 3,
+    "samples": 501,
+    "batch": 1000,
+    "tests": 1000000,
+    "seed": 152857,
+    "timeout": 600,
+    "output": "/tmp/cesare-invert-publish-20260914-v1/build/paired-reference"
+  },
+  "variants": [
+    "65a210bb6a4c",
+    "043d7a693cb3",
+    "f8a6dea8cb0e"
+  ],
+  "method": {
+    "counter": "PERF_COUNT_HW_CPU_CYCLES",
+    "exclude_kernel": true,
+    "exclude_hypervisor": true,
+    "pinned_counter": true,
+    "multiplexing": "rejected",
+    "units": "user CPU cycles per inversion",
+    "governor_or_frequency_changes": false,
+    "paired_empty_subtraction": true,
+    "rotation": "function (sample + offset) modulo 4",
+    "warmup_batches_per_function": 20,
+    "main_runs": 6,
+    "link_orders": [
+      "forward",
+      "reverse"
+    ],
+    "controls": [
+      "one",
+      "max255"
+    ],
+    "control_link_order": "forward",
+    "main_input_words_le": [
+      "0x0123456789abcdef",
+      "0xfedcba9876543210",
+      "0x0f1e2d3c4b5a6978",
+      "0x7766554433221100"
+    ]
+  },
+  "source_sha256": {
+    "invert25519_65a210bb6a4c.s": "186cc14cba822468c920d4274a780d864db4c8b439c0e11e127dffbd1380c8cf",
+    "invert25519_043d7a693cb3.s": "1333983811e657c87e9405de02a968c62f8f947b53dc63b3c7c186c805445670",
+    "invert25519_f8a6dea8cb0e.s": "f5502485c80d5142cae369c0279481cd45a87c45ca6f7db061d20c14a42bc850",
+    "test.c": "5b9b0ee7f5c0896308580b96abfe179b518f88ae7f77f9ade1c48f1076f5ea49",
+    "scripts/benchmark.py": "4781a67d2062109a2902b498362072703bdb82c8403b6b7c0370e8980e5bfd5e",
+    "scripts/bench_paired.c": "6237d7851177581abe81fe61abd1d7a121a1aeadf7701b386da397a460640d66",
+    "scripts/bench_empty.s": "aefc7643ef4684c7b3fad7f7086813ece385cf8b2f2c29a3dc2011ed6c1ebc14"
+  },
+  "tests": [
+    {
+      "variant": "65a210bb6a4c",
+      "returncode": 0,
+      "random_cases": 1000000,
+      "inputs": 1008012,
+      "assembly_calls": 2016028,
+      "binary_sha256": "1e0445887d8f1b9379fb9670c9869979c9244338c2e5a10e5eee1b49a3acd9f5",
+      "seed": "0x25519",
+      "text_sha256": "405093f0007260e7a50796a76d6c71fe6e029e3363ac4d20e3fe4095d645b157"
+    },
+    {
+      "variant": "043d7a693cb3",
+      "returncode": 0,
+      "random_cases": 1000000,
+      "inputs": 1008012,
+      "assembly_calls": 2016028,
+      "binary_sha256": "9a8b448009bf21af571cd128c3540c35d23d25644f13ef440ff27282e7bbc6a6",
+      "seed": "0x25519",
+      "text_sha256": "8ae714fd74cd99234c39c35e0150148ef616342b50a04ccb116b08933d5ad820"
+    },
+    {
+      "variant": "f8a6dea8cb0e",
+      "returncode": 0,
+      "random_cases": 1000000,
+      "inputs": 1008012,
+      "assembly_calls": 2016028,
+      "binary_sha256": "04141613c5d95c88e88e51bd3e262f7b73ece0b545223c7b5531c4d727c9c257",
+      "seed": "0x25519",
+      "text_sha256": "93627b84471d31df6e5ddfcb4428cdd90d9130a37cbf68bc207e1f0a7bcd5e3e"
+    }
+  ],
+  "runs": [
+    {
+      "round": 1,
+      "link_order": "forward",
+      "input_index": 0,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:23.464916+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "62800",
+        "loadavg": "0.22 0.05 0.02 1/341 6438",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400027136"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:25.721548+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "62800",
+        "loadavg": "0.28 0.07 0.02 1/341 6441",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400037120"
+      },
+      "measurement_file": "runs/round-1-forward-input-0.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 3578.835,
+          "net_p50": 3582.526,
+          "net_p90": 3595.644,
+          "raw_p10": 3585.603,
+          "raw_p50": 3589.164,
+          "raw_p90": 3602.4,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3267.494,
+          "net_p50": 3275.302,
+          "net_p90": 3304.722,
+          "raw_p10": 3274.203,
+          "raw_p50": 3280.964,
+          "raw_p90": 3311.628,
+          "delta_baseline_p50": -307.909
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3292.484,
+          "net_p50": 3298.678,
+          "net_p90": 3320.974,
+          "raw_p10": 3298.69,
+          "raw_p50": 3305.147,
+          "raw_p90": 3327.058,
+          "delta_baseline_p50": -282.502
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 4.883,
+          "raw_p50": 7.096,
+          "raw_p90": 7.096,
+          "delta_baseline_p50": -3582.526
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "link_order": "reverse",
+      "input_index": 0,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:25.739696+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "62800",
+        "loadavg": "0.28 0.07 0.02 1/341 6443",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400033792"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:27.980326+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "63900",
+        "loadavg": "0.28 0.07 0.02 1/341 6446",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400030464"
+      },
+      "measurement_file": "runs/round-1-reverse-input-0.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 3579.403,
+          "net_p50": 3583.821,
+          "net_p90": 3589.801,
+          "raw_p10": 3585.898,
+          "raw_p50": 3589.882,
+          "raw_p90": 3595.982,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3265.937,
+          "net_p50": 3274.683,
+          "net_p90": 3301.316,
+          "raw_p10": 3272.446,
+          "raw_p50": 3280.832,
+          "raw_p90": 3308.274,
+          "delta_baseline_p50": -309.36
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3292.575,
+          "net_p50": 3309.861,
+          "net_p90": 3325.392,
+          "raw_p10": 3299.326,
+          "raw_p50": 3315.681,
+          "raw_p90": 3330.391,
+          "delta_baseline_p50": -274.647
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 4.875,
+          "raw_p50": 7.096,
+          "raw_p90": 7.096,
+          "delta_baseline_p50": -3583.821
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "link_order": "forward",
+      "input_index": 0,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:27.998648+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "62800",
+        "loadavg": "0.28 0.07 0.02 2/341 6448",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400033792"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:30.239165+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "63900",
+        "loadavg": "0.34 0.08 0.03 1/341 6451",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400037120"
+      },
+      "measurement_file": "runs/round-2-forward-input-0.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 3579.035,
+          "net_p50": 3583.155,
+          "net_p90": 3589.197,
+          "raw_p10": 3585.823,
+          "raw_p50": 3589.291,
+          "raw_p90": 3594.345,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3266.767,
+          "net_p50": 3276.524,
+          "net_p90": 3304.386,
+          "raw_p10": 3273.073,
+          "raw_p50": 3282.196,
+          "raw_p90": 3311.45,
+          "delta_baseline_p50": -306.459
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3290.961,
+          "net_p50": 3299.614,
+          "net_p90": 3322.153,
+          "raw_p10": 3297.666,
+          "raw_p50": 3305.051,
+          "raw_p90": 3327.087,
+          "delta_baseline_p50": -283.318
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 4.869,
+          "raw_p50": 7.096,
+          "raw_p90": 7.096,
+          "delta_baseline_p50": -3583.155
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "link_order": "reverse",
+      "input_index": 0,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:30.257639+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "62250",
+        "loadavg": "0.34 0.08 0.03 1/341 6453",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400030464"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:32.498237+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "62800",
+        "loadavg": "0.34 0.08 0.03 1/341 6456",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400033792"
+      },
+      "measurement_file": "runs/round-2-reverse-input-0.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 3579.521,
+          "net_p50": 3584.156,
+          "net_p90": 3590.491,
+          "raw_p10": 3586.102,
+          "raw_p50": 3589.906,
+          "raw_p90": 3596.196,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3265.794,
+          "net_p50": 3274.137,
+          "net_p90": 3301.59,
+          "raw_p10": 3272.4,
+          "raw_p50": 3280.074,
+          "raw_p90": 3308.371,
+          "delta_baseline_p50": -309.918
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3294.966,
+          "net_p50": 3307.156,
+          "net_p90": 3322.17,
+          "raw_p10": 3300.924,
+          "raw_p50": 3313.26,
+          "raw_p90": 3327.083,
+          "delta_baseline_p50": -277.988
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 4.872,
+          "raw_p50": 5.763,
+          "raw_p90": 7.096,
+          "delta_baseline_p50": -3584.156
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "link_order": "forward",
+      "input_index": 0,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:32.516840+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "62250",
+        "loadavg": "0.34 0.08 0.03 1/341 6458",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400023808"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:34.758209+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "63900",
+        "loadavg": "0.39 0.10 0.03 1/341 6461",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400027136"
+      },
+      "measurement_file": "runs/round-3-forward-input-0.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 3580.469,
+          "net_p50": 3591.297,
+          "net_p90": 3600.51,
+          "raw_p10": 3587.041,
+          "raw_p50": 3597.539,
+          "raw_p90": 3606.775,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3267.084,
+          "net_p50": 3276.831,
+          "net_p90": 3304.668,
+          "raw_p10": 3273.033,
+          "raw_p50": 3283.182,
+          "raw_p90": 3311.576,
+          "delta_baseline_p50": -311.336
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3290.729,
+          "net_p50": 3299.875,
+          "net_p90": 3320.003,
+          "raw_p10": 3296.28,
+          "raw_p50": 3306.57,
+          "raw_p90": 3327.059,
+          "delta_baseline_p50": -287.952
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 4.875,
+          "raw_p50": 7.096,
+          "raw_p90": 7.096,
+          "delta_baseline_p50": -3591.297
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "link_order": "reverse",
+      "input_index": 0,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:34.776921+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "62800",
+        "loadavg": "0.39 0.10 0.03 1/341 6463",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400027136"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:37.018326+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "62800",
+        "loadavg": "0.39 0.10 0.03 1/342 6467",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400030464"
+      },
+      "measurement_file": "runs/round-3-reverse-input-0.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 3578.915,
+          "net_p50": 3584.157,
+          "net_p90": 3591.149,
+          "raw_p10": 3585.688,
+          "raw_p50": 3590.131,
+          "raw_p90": 3596.734,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3265.695,
+          "net_p50": 3274.321,
+          "net_p90": 3299.382,
+          "raw_p10": 3271.675,
+          "raw_p50": 3280.645,
+          "raw_p90": 3306.478,
+          "delta_baseline_p50": -308.805
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3292.395,
+          "net_p50": 3307.052,
+          "net_p90": 3326.885,
+          "raw_p10": 3298.635,
+          "raw_p50": 3313.02,
+          "raw_p90": 3333.8,
+          "delta_baseline_p50": -277.062
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 4.875,
+          "raw_p50": 7.096,
+          "raw_p90": 7.096,
+          "delta_baseline_p50": -3584.157
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "round": 0,
+      "link_order": "forward",
+      "input_index": 1,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:37.037769+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "63900",
+        "loadavg": "0.39 0.10 0.03 1/342 6469",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400023808"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:39.278291+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "62800",
+        "loadavg": "0.39 0.10 0.03 1/342 6472",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400020480"
+      },
+      "measurement_file": "runs/round-0-forward-input-1.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 3578.867,
+          "net_p50": 3583.319,
+          "net_p90": 3586.977,
+          "raw_p10": 3585.771,
+          "raw_p50": 3589.189,
+          "raw_p90": 3592.872,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3267.14,
+          "net_p50": 3277.69,
+          "net_p90": 3304.876,
+          "raw_p10": 3273.067,
+          "raw_p50": 3283.173,
+          "raw_p90": 3311.725,
+          "delta_baseline_p50": -304.06
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3291.268,
+          "net_p50": 3298.08,
+          "net_p90": 3319.979,
+          "raw_p10": 3297.624,
+          "raw_p50": 3304.662,
+          "raw_p90": 3327.023,
+          "delta_baseline_p50": -284.236
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 4.869,
+          "raw_p50": 5.847,
+          "raw_p90": 7.096,
+          "delta_baseline_p50": -3583.319
+        }
+      ]
+    },
+    {
+      "round": 0,
+      "link_order": "forward",
+      "input_index": 2,
+      "before": {
+        "captured_at_utc": "2026-09-14T08:12:39.297458+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "63900",
+        "loadavg": "0.39 0.10 0.03 1/342 6474",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400027136"
+      },
+      "after": {
+        "captured_at_utc": "2026-09-14T08:12:41.540104+00:00",
+        "uname": {
+          "system": "Linux",
+          "node": "raspberrypi",
+          "release": "6.18.39+rpt-rpi-2712",
+          "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+          "machine": "aarch64",
+          "processor": ""
+        },
+        "model": "Raspberry Pi 5 Model B Rev 1.0",
+        "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+        "perf_event_paranoid": "2",
+        "cpu": 3,
+        "control_cpu": 0,
+        "available_affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frequency": {
+          "scaling_governor": "ondemand",
+          "scaling_cur_freq": "2400000",
+          "scaling_min_freq": "1500000",
+          "scaling_max_freq": "2400000",
+          "cpuinfo_max_freq": "2400000"
+        },
+        "temperature_millidegrees": "64450",
+        "loadavg": "0.44 0.11 0.04 2/342 6477",
+        "throttled": "throttled=0x0",
+        "clock": "frequency(0)=2400020480"
+      },
+      "measurement_file": "runs/round-0-forward-input-2.json",
+      "measurements": [
+        {
+          "name": "65a210bb6a4c",
+          "net_p10": 3580.402,
+          "net_p50": 3588.123,
+          "net_p90": 3601.447,
+          "raw_p10": 3587.217,
+          "raw_p50": 3594.609,
+          "raw_p90": 3607.716,
+          "delta_baseline_p50": 0.0
+        },
+        {
+          "name": "043d7a693cb3",
+          "net_p10": 3265.389,
+          "net_p50": 3275.545,
+          "net_p90": 3304.74,
+          "raw_p10": 3271.147,
+          "raw_p50": 3281.427,
+          "raw_p90": 3311.576,
+          "delta_baseline_p50": -311.638
+        },
+        {
+          "name": "f8a6dea8cb0e",
+          "net_p10": 3292.726,
+          "net_p50": 3301.047,
+          "net_p90": 3323.041,
+          "raw_p10": 3298.459,
+          "raw_p50": 3307.306,
+          "raw_p90": 3330.137,
+          "delta_baseline_p50": -285.511
+        },
+        {
+          "name": "empty",
+          "net_p10": 0.0,
+          "net_p50": 0.0,
+          "net_p90": 0.0,
+          "raw_p10": 4.896,
+          "raw_p50": 7.096,
+          "raw_p90": 7.096,
+          "delta_baseline_p50": -3588.123
+        }
+      ]
+    }
+  ],
+  "before": {
+    "captured_at_utc": "2026-09-14T08:12:06.557791+00:00",
+    "uname": {
+      "system": "Linux",
+      "node": "raspberrypi",
+      "release": "6.18.39+rpt-rpi-2712",
+      "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+      "machine": "aarch64",
+      "processor": ""
+    },
+    "model": "Raspberry Pi 5 Model B Rev 1.0",
+    "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+    "perf_event_paranoid": "2",
+    "cpu": 3,
+    "control_cpu": 0,
+    "available_affinity": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "frequency": {
+      "scaling_governor": "ondemand",
+      "scaling_cur_freq": "1500000",
+      "scaling_min_freq": "1500000",
+      "scaling_max_freq": "2400000",
+      "cpuinfo_max_freq": "2400000"
+    },
+    "temperature_millidegrees": "58400",
+    "loadavg": "0.00 0.00 0.00 1/341 6388",
+    "throttled": "throttled=0x0",
+    "clock": "frequency(0)=1500012800"
+  },
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "objcopy": "GNU objcopy (GNU Binutils for Debian) 2.44\nCopyright (C) 2025 Free Software Foundation, Inc.\nThis program is free software; you may redistribute it under the terms of\nthe GNU General Public License version 3 or (at your option) any later version.\nThis program has absolutely no warranty.\n",
+  "gmp": {
+    "cflags": [],
+    "libs": [
+      "-lgmp"
+    ],
+    "pkg_config_path": null,
+    "pkg_config_sysroot_dir": null
+  },
+  "benchmark_before": {
+    "captured_at_utc": "2026-09-14T08:12:23.447353+00:00",
+    "uname": {
+      "system": "Linux",
+      "node": "raspberrypi",
+      "release": "6.18.39+rpt-rpi-2712",
+      "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+      "machine": "aarch64",
+      "processor": ""
+    },
+    "model": "Raspberry Pi 5 Model B Rev 1.0",
+    "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+    "perf_event_paranoid": "2",
+    "cpu": 3,
+    "control_cpu": 0,
+    "available_affinity": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "frequency": {
+      "scaling_governor": "ondemand",
+      "scaling_cur_freq": "2400000",
+      "scaling_min_freq": "1500000",
+      "scaling_max_freq": "2400000",
+      "cpuinfo_max_freq": "2400000"
+    },
+    "temperature_millidegrees": "62800",
+    "loadavg": "0.22 0.05 0.02 1/341 6436",
+    "throttled": "throttled=0x0",
+    "clock": "frequency(0)=2400023808"
+  },
+  "summary": {
+    "units": "user CPU cycles per inversion",
+    "runs_per_variant": 6,
+    "aggregation": "median of per-run paired net medians",
+    "results": {
+      "65a210bb6a4c": {
+        "net_median": 3583.9885,
+        "net_range": [
+          3582.526,
+          3591.297
+        ],
+        "raw_median": 3589.8940000000002,
+        "delta_baseline_median": 0.0,
+        "per_run_net_medians": [
+          3582.526,
+          3583.821,
+          3583.155,
+          3584.156,
+          3591.297,
+          3584.157
+        ]
+      },
+      "043d7a693cb3": {
+        "net_median": 3274.9925000000003,
+        "net_range": [
+          3274.137,
+          3276.831
+        ],
+        "raw_median": 3280.898,
+        "delta_baseline_median": -309.0825,
+        "per_run_net_medians": [
+          3275.302,
+          3274.683,
+          3276.524,
+          3274.137,
+          3276.831,
+          3274.321
+        ]
+      },
+      "f8a6dea8cb0e": {
+        "net_median": 3303.4635,
+        "net_range": [
+          3298.678,
+          3309.861
+        ],
+        "raw_median": 3309.795,
+        "delta_baseline_median": -280.245,
+        "per_run_net_medians": [
+          3298.678,
+          3309.861,
+          3299.614,
+          3307.156,
+          3299.875,
+          3307.052
+        ]
+      },
+      "empty": {
+        "net_median": 0.0,
+        "net_range": [
+          0.0,
+          0.0
+        ],
+        "raw_median": 7.096,
+        "delta_baseline_median": -3583.9885,
+        "per_run_net_medians": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "ranking": [
+      "043d7a693cb3",
+      "f8a6dea8cb0e",
+      "65a210bb6a4c"
+    ]
+  },
+  "after": {
+    "captured_at_utc": "2026-09-14T08:12:41.559664+00:00",
+    "uname": {
+      "system": "Linux",
+      "node": "raspberrypi",
+      "release": "6.18.39+rpt-rpi-2712",
+      "version": "#1 SMP PREEMPT Debian 1:6.18.39-1+rpt1 (2026-07-29)",
+      "machine": "aarch64",
+      "processor": ""
+    },
+    "model": "Raspberry Pi 5 Model B Rev 1.0",
+    "cpuinfo": "processor\t: 0\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 1\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 2\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nprocessor\t: 3\nBogoMIPS\t: 108.00\nFeatures\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\nCPU implementer\t: 0x41\nCPU architecture: 8\nCPU variant\t: 0x4\nCPU part\t: 0xd0b\nCPU revision\t: 1\n\nRevision\t: d04170\nSerial\t\t: e4782b73a825ec71\nModel\t\t: Raspberry Pi 5 Model B Rev 1.0",
+    "perf_event_paranoid": "2",
+    "cpu": 3,
+    "control_cpu": 0,
+    "available_affinity": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "frequency": {
+      "scaling_governor": "ondemand",
+      "scaling_cur_freq": "2400000",
+      "scaling_min_freq": "1500000",
+      "scaling_max_freq": "2400000",
+      "cpuinfo_max_freq": "2400000"
+    },
+    "temperature_millidegrees": "63900",
+    "loadavg": "0.44 0.11 0.04 3/342 6479",
+    "throttled": "throttled=0x0",
+    "clock": "frequency(0)=2400023808"
+  }
+}
